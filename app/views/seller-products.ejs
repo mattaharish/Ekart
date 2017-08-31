@@ -1,0 +1,33 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+</head>
+
+<body>
+<% if(products.length>0) { %>
+  <% products.forEach(function(product){ %>
+    <div class="w3-container">
+
+      <div style="background-color:#E53935;color:white" class="w3-panel w3-card-4">
+        <p>
+          Brand - "<%= product.brand %>"<br />
+          Model - <%= product.model %><br />
+
+          <a href="http://localhost:8000/users/seller/products/<%= product.id%>"><button style="float:right" class="btn btn-primary">Click for Details</button></a>
+        </p>
+      </div>
+    </div>
+  <% }); %>
+  <% } else { %>
+    <br />
+    <br />
+    <center>
+    <h4>No Product Available</h4>
+    <a href="http://localhost:8000/users/seller/home"><button class="btn btn-primary">Go back</button></a>
+    </center>
+  <% } %>
+
+</body>
+</html>

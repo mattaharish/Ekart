@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ekart</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/shop-homepage.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Ekart</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">All
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-2">
+
+
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+        <!--  <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src="http://www.hdcarwallpapers.com/walls/lexus_is_350-HD.jpg" alt="First slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div> -->
+          <br /><br />
+
+          <div class="row">
+            <% if(products){ %>
+              <% products.forEach(function(product){ %>
+            <div class="col-lg-9 col-md-6 mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#"><%= product.brand %></a>
+                  </h4>
+                  <h5><%= product.model %></h5>
+                  <h5>Size: <%= product.size %></h5>
+                  <h5>Price: <%= product.price %></h5>
+                  <% if(product.idealFor){ %>
+                    <h5>Ideal For: <%= product.idealFor %></h5>
+                  <% } %>
+                  <h5>Color: <%= product.color %></h5>
+                  <% if(product.ram){ %>
+                    <h5>Ram: <%= product.ram %></h5>
+                  <% } %>
+                  <% if(product.storage){ %>
+                    <h5>Storage: <%= product.storage %></h5>
+                  <% } %>
+                  <% if(product.camera){ %>
+                    <h5>Camera: <%= product.camera %></h5>
+                  <% } %>
+                  <% if(product.cpu){ %>
+                    <h5>CPU: <%= product.cpu %></h5>
+                  <% } %>
+                  <h5>Warranty: <%= product.warranty %></h5>
+                  <h5>Description: <%= product.description %></h5>
+
+                </div>
+                <form action="http://localhost:8000/users/product/add-to-cart/<%= product.id %>/<%= product.brand %>/<%= product.model %>/<%= product.price%>" method="GET">
+                Quantity : <input type="number" name="quantity" min="1" max="3" placeholder="1-3" required/>
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                </form>
+              </div>
+            </div>
+            <% }) %>
+            <% } %>
+
+        </div>
+          <!-- /.row -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark" style="position: fixed; bottom: 0px;width: 100%; height: 30px;">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

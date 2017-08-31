@@ -1,0 +1,39 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+</head>
+
+<body>
+<% if(products) { %>
+  <% products.forEach(function(product){ %>
+    <div class="w3-container">
+
+      <div style="background-color:#607D8B;color:white" class="w3-panel w3-card-4">
+        <p>
+          Brand - <%= product.brand %> <br />
+          Model - <%= product.model %> <br />
+          Price - <%= product.price %> <br />
+          Size - <%= product.size %> <br />
+          Ram - <%= product.ram %> <br />
+          Storage - <%= product.storage %> <br />
+          Camera - <%= product.camera %> <br />
+          Processor - <%= product.cpu %> <br />
+          Color - <%= product.color %> <br />
+          Description - <%= product.description %> <br />
+          warranty - <%= product.warranty %>
+
+          <a href="http://localhost:8000/users/seller/electronic/edit/<%= product.id%>"><button style="float:right;background-color:#E53935;" class="btn btn-primary">Edit</button></a>
+          <a>
+            <form action="http://localhost:8000/users/seller/products/delete/<%= product.id%>" method="post">
+              <button type="submit" style="float:right;background-color:#E53935;" class="btn btn-primary">Delete</button>
+            </form>
+          </a>
+        </p>
+      </div>
+    </div>
+  <% }); %>
+  <% } %>
+</body>
+</html>

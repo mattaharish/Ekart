@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>Ekart</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign Up</div>
+                        <div style="float:right; font-size: 85%; position: relative; top:-10px"><a href="http://localhost:8000/users/login">Sign In</a></div>
+                    </div>
+                    <div class="panel-body" >
+                        <form id="signupform" method="post" action="/users/register-retailer" class="form-horizontal" role="form">
+
+
+                                <% if(errors){ %>
+                                <% errors.forEach(function(flash){ %>
+                                <div id="signupalert" class="alert alert-danger">
+                                  <span>
+                                    <%= flash.msg %>
+                                  </span>
+                                </div>
+                                <% }); %>
+                                <% } %>
+
+                                <% if(retailerExists){ %>
+                                <% retailerExists.forEach(function(flash){ %>
+                                <div id="signupalert" class="alert alert-danger">
+                                  <span>
+                                    <%= flash %>
+                                  </span>
+                                </div>
+                                <% }); %>
+                                <% } %>
+
+                            <div class="form-group">
+                                <label for="email" class="col-md-3 control-label">Email</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="email" placeholder="Email Address">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="firstname" class="col-md-3 control-label">Retailer Name </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="retailer" placeholder="Retailer Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname" class="col-md-3 control-label">Mobile</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="mobile" placeholder="Mobile">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname" class="col-md-3 control-label">PAN card </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="pancard" placeholder="PAN card">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname" class="col-md-3 control-label">Merchnat ID </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="merchant" placeholder="Merchnat ID">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="col-md-3 control-label">Security Question</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" value="What is your Favorite food?" readonly="">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="col-md-3 control-label">Answer</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="security" placeholder="Answer security Question" required="">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">Password</label>
+                                <div class="col-md-9">
+                                    <input type="password" class="form-control" name="passwd" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">Re-Enter Password</label>
+                                <div class="col-md-9">
+                                    <input type="password" class="form-control" name="passwd2" placeholder="Password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <!-- Button -->
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <!-- Button -->
+                                <div class="col-md-offset-3 col-md-9">
+                                    <b>User</b> - <a href="http://localhost:8000/users/register"><button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button></a>
+                                </div>
+                            </div>
+
+                        </form>
+                     </div>
+                </div>
+
+     </div>
+</div>
+</body>
+</html>
