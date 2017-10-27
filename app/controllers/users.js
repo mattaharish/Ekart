@@ -112,11 +112,6 @@ router.post( '/register', function ( req, res ) {
 	var password2 = req.body.passwd2;
 
 	// Validation
-	req.checkBody( 'firstname', 'Firstname is required' ).notEmpty();
-	req.checkBody( 'email', 'Email is required' ).notEmpty();
-	req.checkBody( 'lastname', 'Lastname is required' ).notEmpty();
-	req.checkBody( 'mobile', 'Mobile is required' ).notEmpty();
-	req.checkBody( 'passwd', 'Password is required' ).notEmpty();
 	req.checkBody( 'passwd2', 'Passwords do not match' ).equals( req.body.passwd );
 
 	var errors = req.validationErrors();
